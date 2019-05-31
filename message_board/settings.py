@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
+    'accounts',
     'boards'
 ]
 
@@ -52,6 +53,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'message_board.urls'
+LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 TEMPLATES = [
     {
