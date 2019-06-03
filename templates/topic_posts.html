@@ -5,7 +5,7 @@
 {% block title %}{{ topic.subject }}{% endblock %}
 
 {% block breadcrumb %}
-  <li class="breadcrumb-item"><a href="{% url 'home' %}">Board</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
   <li class="breadcrumb-item"><a href="{% url 'board_topics' topic.board.pk %}">{{ topic.board.name }}</a></li>
   <li class="breadcrumb-item active">{{ topic.subject }}</li>
 {% endblock %}
@@ -39,7 +39,8 @@
             {{ post.message }}
             {% if post.created_by == user %}
               <div class="mt-3">
-                <a href="#" class="btn btn-primary btn-sm" role="button">Edit</a>
+                <a href="{% url 'edit_post' post.topic.board.pk post.topic.pk post.pk %}"
+                   class="btn btn-primary btn-sm" role="button">Edit</a>
               </div>
             {% endif %}
           </div>
